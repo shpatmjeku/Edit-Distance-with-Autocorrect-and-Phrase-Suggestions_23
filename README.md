@@ -21,7 +21,7 @@ Një projekt i bazuar në Python që implementon një algoritëm të autokorrekt
 
 1. Klononi depozitën:
     ```bash
-    git clone https://github.com/emri-juaj/edit-distance-autocorrect.git
+    git clone https://github.com/shpatmjeku/Edit-Distance-with-Autocorrect-and-Phrase-Suggestions_23.git
     cd edit-distance-autocorrect
     ```
 2. Sigurohuni që Python është instaluar në sistemin tuaj.
