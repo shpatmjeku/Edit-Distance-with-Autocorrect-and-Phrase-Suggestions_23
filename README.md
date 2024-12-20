@@ -68,5 +68,5 @@ Një projekt i bazuar në Python që implementon një algoritëm të autokorrekt
 
 
 ## Screenshots
-**
+![Pamja e projektit](/images/image1.png)
 
