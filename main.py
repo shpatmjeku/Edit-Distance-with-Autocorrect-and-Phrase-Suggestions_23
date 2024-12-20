@@ -15,23 +15,19 @@ def edit_distance(word1: str, word2: str) -> int:
     for i in range(1, m + 1):
         for j in range(1, n + 1):
             if word1[i - 1] == word2[j - 1]:
-                cost = 0  # No operation needed
+                dp[i][j] = dp[i - 1][j - 1]
             else:
-                cost = 1  # Substitution
-
-            # Calculate costs for substitution, insertion, and deletion
-            substitution = dp[i - 1][j - 1] + cost
-            insertion = dp[i][j - 1] + 1
-            deletion = dp[i - 1][j] + 1
-
-            # Choose the minimum cost operation
-            dp[i][j] = min(substitution, insertion, deletion)
+                dp[i][j] = 1 + min(dp[i - 1][j],  # deletion
+                                   dp[i][j - 1],  # insertion
+                                   dp[i - 1][j - 1])  # substitution
 
     return dp[m][n]
 
 # Example Usage
 if __name__ == "__main__":
-    word1 = "boat"
-    word2 = "float"
+    word1 = "yll"
+    word2 = "Yll"
     distance = edit_distance(word1, word2)
     print(f"Number of operations needed to convert '{word1}' and '{word2}' is {distance}")
+
+
