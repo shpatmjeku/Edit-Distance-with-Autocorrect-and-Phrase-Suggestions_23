@@ -10,8 +10,8 @@ Një projekt i bazuar në Python që implementon një algoritëm të autokorrekt
 
 ## Karakteristikat
 - **Edit Distance Algorithm**: Llogarit numrin minimal të operacioneve (shtime, fshirje, zëvendësime) të nevojshme për të transformuar një fjalë ose frazë në një tjetër.
-- **Korrigjimi i Frazave**: Mbështet llogaritjen e distancës së redaktimit në nivel fraze.
-- **Sugjerime Autokorrektimi**: Sugjeron alternativa bazuar në një fjalor të ngarkuar paraprakisht, me një prag të konfiguruar për distancën e redaktimit.
+- **Korrigjimi i Frazave**: Mbështet llogaritjen e distancës së editimit në nivel fraze.
+- **Sugjerime Autokorrektimi**: Sugjeron alternativa bazuar në një fjalor të ngarkuar paraprakisht, me një prag të konfiguruar për distancën e editimit.
 - **Graphical User Interface (GUI)**: Përfshin një ndërfaqe grafike interaktive për përdorim të lehtë.
 
 ---
@@ -32,24 +32,24 @@ Një projekt i bazuar në Python që implementon një algoritëm të autokorrekt
 1. Run "main.py"
 2. Futni frazën tuaj të kërkimit në kutinë e hyrjes.
 
-3. Shtypni **Get Suggestions** ose klikoni `Enter` për të parë sugjerimet bazuar në algoritmin e distancës së redaktimit.
+3. Shtypni **Get Suggestions** ose klikoni `Enter` për të parë sugjerimet bazuar në algoritmin e distancës së editimit.
 
 4. Sugjerimet do të shfaqen në një tabelë që tregon:
     - Fraza e sugjeruar.
-    - Distanca e llogaritur e redaktimit nga kërkesa juaj.
+    - Distanca e llogaritur e editimit nga kërkesa juaj.
 
 ---
 
 ## Si funksionon
 ### Komponentët kryesorë
-- **Llogaritja e Distancës së Redaktimit**:
+- **Edit Distance**:
     Funksioni `edit_distance` llogarit numrin minimal të operacioneve për të transformuar një fjalë në një tjetër.
     
-- **Distanca e Redaktimit të Frazave**:
-    Funksioni `phrase_edit_distance` aplikon distancën e redaktimit në nivel fjale në fraza të tëra.
+- **Distanca e Editimit të Frazave**:
+    Funksioni `phrase_edit_distance` aplikon distancën e editimit në nivel fjale në fraza të tëra.
 
 - **Motori i Sugjerimeve**:
-    Funksioni `suggest_corrections` rendit sugjerimet nga fjalori bazuar në distancën e tyre të redaktimit ndaj frazës së kërkuar.
+    Funksioni `suggest_corrections` rendit sugjerimet nga fjalori bazuar në distancën e tyre të editimit ndaj frazës së kërkuar.
 
 - **Ngarkimi i Fjalorit**:
     Funksioni `load_dictionary` lexon një skedar teksti që përmban të dhënat e fjalorit, duke siguruar ekzistencën dhe formatimin e duhur të tij.
