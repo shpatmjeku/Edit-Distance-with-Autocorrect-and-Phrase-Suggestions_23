@@ -1,6 +1,7 @@
 import tkinter as tk
 from tkinter import ttk, messagebox
 import os
+import sys
 
 def edit_distance(word1: str, word2: str) -> int:
     m = len(word1)
@@ -183,10 +184,30 @@ def create_gui(dictionary: list):
     root.mainloop()
 
 def main():
-    dictionary_file = "dictionary.txt"
+    # Check if a file path is provided as a command-line argument
+    if len(sys.argv) > 1:
+        dictionary_file = sys.argv[1]
+    else:
+        dictionary_file = "dictionary.txt"
+
     dictionary = load_dictionary(dictionary_file)
-    if not dictionary:
-        return
+    while not dictionary:
+        retry = messagebox.askretrycancel(
+            "Error",
+            "Failed to load dictionary. Would you like to retry with a new file?"
+        )
+        if not retry:
+            return
+        # Allow user to select a new file
+        from tkinter.filedialog import askopenfilename
+        dictionary_file = askopenfilename(
+            title="Select Dictionary File",
+            filetypes=[("Text Files", "*.txt"), ("All Files", "*.*")]
+        )
+        if not dictionary_file:
+            return  # User cancelled the file selection
+        dictionary = load_dictionary(dictionary_file)
+
     create_gui(dictionary)
 
 if __name__ == "__main__":
